@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Animation</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            width: 100%;
+            height: 100%;
+            background-color: #111;
+            color: #fff;
+        }
+        #box{
+            width: 150px;
+            height: 150px;
+            background-color: crimson;
+            color: #111;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+        #box1{
+            width: 150px;
+            height: 150px;
+            background-color: aquamarine;
+            color: #111;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="box">To</div>
+    <div id="box1">From</div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script>
+
+        gsap.to("#box",{
+            x:500, 
+            duration:2,
+            delay:1,
+            rotate:360,
+
+            // you can write css property hear but use camalCase 
+        })
+
+        gsap.from("#box1",{
+            x:500, 
+            duration:2,
+            delay:1,
+            rotate:-360,
+            
+            // you can write css property hear but use camalCase
+        })
+
+    </script>
+</body>
+</html>

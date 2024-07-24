@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Trigger</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            width: 100%;
+            height: 100%;
+            background-color: #111;
+            color: #fff;
+        }
+        #page1{
+            width: 100%;
+            height: 100vh;
+            background-color: lightblue;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #page2{
+            width: 100%;
+            height: 100vh;
+            background-color: rgb(87, 193, 228);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #box{
+            width: 300px;
+            height: 300px;
+            background-color: crimson;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="page1">
+        <div id="box"></div>
+    </div>
+    <div id="page2">
+        <div id="box"></div>
+    </div>
+    <div id="page1"></div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+
+        gsap.from("#page1 #box",{
+            opacity:0,
+            scale:0,
+            rotate:1000,
+            delay:1,
+            duration:1.5,
+        })
+        gsap.from("#page2 #box",{
+            opacity:0,
+            scale:0,
+            rotate:700,
+            duration:1.5,
+            scrollTrigger:{
+                trigger: "#page2",
+                scroller: "body",
+                // markers: true, 
+                start:"top 0%", //starting of scroller
+                end:"top -100%", //ending of scroller
+                scrub:true,  // animate on scroll
+                pin:true  // where scroll page will pined(not scroll)
+            }
+        })
+    </script>
+</body>
+</html>
